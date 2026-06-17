@@ -1,4 +1,13 @@
-const API_URL = 'https://script.google.com/macros/s/AKfycbxM07GYmFncUSLFNFinKR0NkADw-X0ZfDiZoYwBm27IRjsDWR5OF5VNGkf0ffcMRD7qsg/exec';
+var API_URL = 'https://script.google.com/macros/s/AKfycbxM07GYmFncUSLFNFinKR0NkADw-X0ZfDiZoYwBm27IRjsDWR5OF5VNGkf0ffcMRD7qsg/exec';
+
+function getDriveImageURL(url) {
+  if (!url) return '';
+  var match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  if (match) {
+    return 'https://drive.google.com/uc?export=view&id=' + match[1];
+  }
+  return url;
+}
 
 function searchCertificate() {
   var reportNo = document.getElementById('reportSearch').value.trim();
@@ -28,10 +37,26 @@ function searchCertificate() {
         return;
       }
 
+      var img1 = getDriveImageURL(data["Abstract Image"]);
+      var img2 = getDriveImageURL(data["Refractometer Image"]);
+
+      var imagesHTML = '';
+      if (img1 || img2) {
+        imagesHTML = '<div class="cert-images">';
+        if (img1) {
+          imagesHTML += '<div class="cert-img-wrap"><img src="' + img1 + '" alt="Abstract Image"><p>Abstract Image</p></div>';
+        }
+        if (img2) {
+          imagesHTML += '<div class="cert-img-wrap"><img src="' + img2 + '" alt="Refractometer Image"><p>Refractometer Image</p></div>';
+        }
+        imagesHTML += '</div>';
+      }
+
       resultDiv.innerHTML =
         '<div class="cert-result">' +
           '<h2>&#10003; Certificate Verified</h2>' +
           '<p style="color:green; margin:0.5rem 0;">This is an authentic AGA certificate.</p>' +
+          imagesHTML +
           '<table>' +
             '<tr><td>Report Number</td><td>' + data["Report Number :"] + '</td></tr>' +
             '<tr><td>Species</td><td>' + data["Species:"] + '</td></tr>' +
@@ -55,3 +80,4 @@ function searchCertificate() {
         '</div>';
     });
 }
+
