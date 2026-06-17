@@ -1,4 +1,4 @@
-var API_URL = 'https://script.google.com/macros/s/AKfycbxM07GYmFncUSLFNFinKR0NkADw-X0ZfDiZoYwBm27IRjsDWR5OF5VNGkf0ffcMRD7qsg/exec';
+var API_URL = 'https://script.google.com/macros/s/AKfycbxfzWYMAlrySCVdKLcK1dq3w489-U5Zzg5Y7vwKWngSd4V0DB0YV-y_xSGusXhjyJEu9A/exec';
 
 function searchCertificate() {
   var reportNo = document.getElementById('reportSearch').value.trim();
