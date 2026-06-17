@@ -176,3 +176,23 @@ footer {
   .search-box { flex-direction: column; }
   .search-box button { padding: 12px; }
 }
+.cert-images {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+.cert-img-wrap {
+  text-align: center;
+}
+.cert-img-wrap img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border: 2px solid #C9A84C;
+}
+.cert-img-wrap p {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #6B6B6B;
+}
