@@ -1,14 +1,5 @@
 var API_URL = 'https://script.google.com/macros/s/AKfycbxM07GYmFncUSLFNFinKR0NkADw-X0ZfDiZoYwBm27IRjsDWR5OF5VNGkf0ffcMRD7qsg/exec';
 
-function getDriveImageURL(url) {
-  if (!url) return '';
-  var match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-  if (match) {
-    return 'https://drive.google.com/uc?export=view&id=' + match[1];
-  }
-  return url;
-}
-
 function searchCertificate() {
   var reportNo = document.getElementById('reportSearch').value.trim();
   if (!reportNo) {
@@ -37,8 +28,8 @@ function searchCertificate() {
         return;
       }
 
-      var img1 = getDriveImageURL(data["Abstract Image"]);
-      var img2 = getDriveImageURL(data["Refractometer Image"]);
+      var img1 = data["Abstract Image"] || '';
+      var img2 = data["Refractometer Image"] || '';
 
       var imagesHTML = '';
       if (img1 || img2) {
@@ -52,23 +43,25 @@ function searchCertificate() {
         imagesHTML += '</div>';
       }
 
+      var reportNum = data["Report Number :"] || data["Report Number:"] || data["Report Number"] || reportNo;
+
       resultDiv.innerHTML =
         '<div class="cert-result">' +
           '<h2>&#10003; Certificate Verified</h2>' +
           '<p style="color:green; margin:0.5rem 0;">This is an authentic AGA certificate.</p>' +
           imagesHTML +
           '<table>' +
-            '<tr><td>Report Number</td><td>' + data["Report Number :"] + '</td></tr>' +
-            '<tr><td>Species</td><td>' + data["Species:"] + '</td></tr>' +
-            '<tr><td>Variety</td><td>' + data["Variety:"] + '</td></tr>' +
-            '<tr><td>Weight</td><td>' + data["Weight:"] + '</td></tr>' +
-            '<tr><td>Dimensions</td><td>' + data["Dimensions:"] + '</td></tr>' +
-            '<tr><td>Cut</td><td>' + data["Cut:"] + '</td></tr>' +
-            '<tr><td>Shape</td><td>' + data["Shape:"] + '</td></tr>' +
-            '<tr><td>Color Grade</td><td>' + data["Color Grade:"] + '</td></tr>' +
-            '<tr><td>Clarity</td><td>' + data["Clarity:"] + '</td></tr>' +
-            '<tr><td>Origin</td><td>' + data["Origin:"] + '</td></tr>' +
-            '<tr><td>Comment</td><td>' + data["Comment:"] + '</td></tr>' +
+            '<tr><td>Report Number</td><td>' + reportNum + '</td></tr>' +
+            '<tr><td>Species</td><td>' + (data["Species:"] || data["Species"] || '') + '</td></tr>' +
+            '<tr><td>Variety</td><td>' + (data["Variety:"] || data["Variety"] || '') + '</td></tr>' +
+            '<tr><td>Weight</td><td>' + (data["Weight:"] || data["Weight"] || '') + '</td></tr>' +
+            '<tr><td>Dimensions</td><td>' + (data["Dimensions:"] || data["Dimensions"] || '') + '</td></tr>' +
+            '<tr><td>Cut</td><td>' + (data["Cut:"] || data["Cut"] || '') + '</td></tr>' +
+            '<tr><td>Shape</td><td>' + (data["Shape:"] || data["Shape"] || '') + '</td></tr>' +
+            '<tr><td>Color Grade</td><td>' + (data["Color Grade:"] || data["Color Grade"] || '') + '</td></tr>' +
+            '<tr><td>Clarity</td><td>' + (data["Clarity:"] || data["Clarity"] || '') + '</td></tr>' +
+            '<tr><td>Origin</td><td>' + (data["Origin:"] || data["Origin"] || '') + '</td></tr>' +
+            '<tr><td>Comment</td><td>' + (data["Comment:"] || data["Comment"] || '') + '</td></tr>' +
           '</table>' +
         '</div>';
     })
