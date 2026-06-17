@@ -1,121 +1,104 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.8px Courier; color: #141414; -webkit-text-stroke: #141414; background-color: #e0e2e6}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.8px Courier; color: #141414; -webkit-text-stroke: #141414; background-color: #e0e2e6; min-height: 11.0px}
-    span.s1 {font-kerning: none}
+  <meta charset="UTF-8">
+  <title>AGA — QR Code Generator</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h1 { color: #9B111E; }
+    input, button {
+      padding: 12px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    input {
+      width: 100%;
+      border: 2px solid #C9A84C;
+      margin: 1rem 0;
+    }
+    button {
+      background: #9B111E;
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    #qrOutput {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    #qrOutput canvas {
+      border: 8px solid #1A1A2E;
+      padding: 12px;
+      background: white;
+    }
+    .print-info {
+      text-align: center;
+      color: #6B6B6B;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;AGA — QR Code Generator&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: Georgia, serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>max-width: 600px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 2rem auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 0 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>h1 { color: #9B111E; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>input, button {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: inherit;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>input {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: 2px solid #C9A84C;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 1rem 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #9B111E;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>#qrOutput {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 2rem 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>#qrOutput canvas {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: 8px solid #1A1A2E;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.print-info {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #6B6B6B;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;h1&gt;QR Code Generator&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;p&gt;Enter the report number to generate</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">     </span>a QR code for the certificate.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;input type="text" id="reportInput"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>placeholder="AGA-2026-00001"&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button onclick="generateQR()"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Generate QR Code</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/button&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div id="qrOutput"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;p class="print-info"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Right-click the QR code → Save Image,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>then place it on your printed certificate.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;!-- QR code library (free, open-source) --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script src=</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// IMPORTANT: Replace with YOUR actual site URL</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const SITE_URL =</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>'https://yourusername.github.io/asian-gemological-association';</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function generateQR() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const reportNo =</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById('reportInput')</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>.value.trim();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (!reportNo) return;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const container =</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById('qrOutput');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>container.innerHTML = '';</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const verifyURL =</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>SITE_URL + '/verify.html?id=' +</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>encodeURIComponent(reportNo);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>new QRCode(container, {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>text: verifyURL,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>width: 200,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>height: 200,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>colorDark: '#1A1A2E',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>colorLight: '#FFFFFF'</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>container.innerHTML +=</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>'&lt;p style="margin-top:1rem;"&gt;' +</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>'&lt;strong&gt;' + reportNo + '&lt;/strong&gt;' +</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>'&lt;br&gt;&lt;small&gt;' + verifyURL +</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>'&lt;/small&gt;&lt;/p&gt;';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+  <h1>QR Code Generator</h1>
+  <p>Enter the report number to generate
+     a QR code for the certificate.</p>
+
+  <input type="text" id="reportInput"
+    placeholder="AGA-2026-00001">
+
+  <button onclick="generateQR()">
+    Generate QR Code
+  </button>
+
+  <div id="qrOutput"></div>
+  <p class="print-info">
+    Right-click the QR code → Save Image,
+    then place it on your printed certificate.
+  </p>
+
+  <!-- QR code library (free, open-source) -->
+  <script src=
+    "https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js">
+  </script>
+  <script>
+    // IMPORTANT: Replace with YOUR actual site URL
+    const SITE_URL =
+      'https://yourusername.github.io/asian-gemological-association';
+
+    function generateQR() {
+      const reportNo =
+        document.getElementById('reportInput')
+          .value.trim();
+      if (!reportNo) return;
+
+      const container =
+        document.getElementById('qrOutput');
+      container.innerHTML = '';
+
+      const verifyURL =
+        SITE_URL + '/verify.html?id=' +
+        encodeURIComponent(reportNo);
+
+      new QRCode(container, {
+        text: verifyURL,
+        width: 200,
+        height: 200,
+        colorDark: '#1A1A2E',
+        colorLight: '#FFFFFF'
+      });
+
+      container.innerHTML +=
+        '<p style="margin-top:1rem;">' +
+        '<strong>' + reportNo + '</strong>' +
+        '<br><small>' + verifyURL +
+        '</small></p>';
+    }
+  </script>
 </body>
 </html>
