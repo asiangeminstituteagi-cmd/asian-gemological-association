@@ -5,7 +5,7 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
   <title>Verify Certificate — AGA</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav style="background:var(--charcoal);
@@ -33,10 +33,9 @@
     <div id="certResult"></div>
   </section>
 
-  <script src="js/app.js"></script>
+  <script src="app.js"></script>
   <script>
-    // Auto-search if URL has ?id= parameter
-    const params = new URLSearchParams(
+    var params = new URLSearchParams(
       window.location.search
     );
     if (params.get('id')) {
