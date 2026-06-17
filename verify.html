@@ -1,66 +1,49 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.8px Courier; color: #141414; -webkit-text-stroke: #141414; background-color: #e0e2e6}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.8px Courier; color: #141414; -webkit-text-stroke: #141414; background-color: #e0e2e6; min-height: 11.0px}
-    span.s1 {font-kerning: none}
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Verify Certificate — AGA</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Verify Certificate — AGA&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;link rel="stylesheet" href="css/style.css"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;nav style="background:var(--charcoal);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>padding:1rem 5%;"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;a href="index.html" style="color:var(--gold);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">       </span>text-decoration:none; font-size:1.2rem;"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>← Asian Gemological Association</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/nav&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;section&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Certificate Verification&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="search-box"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">         </span>style="border-color:var(--ruby);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>max-width:550px;"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;input type="text" id="reportSearch"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>placeholder="Enter Report Number"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button onclick="searchCertificate()"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>style="background:var(--ruby);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                     </span>color:white;"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Verify</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="certResult"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script src="js/app.js"&gt;&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Auto-search if URL has ?id= parameter</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const params = new URLSearchParams(</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>window.location.search</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (params.get('id')) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById('reportSearch')</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.value = params.get('id');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>searchCertificate();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+  <nav style="background:var(--charcoal);
+              padding:1rem 5%;">
+    <a href="index.html" style="color:var(--gold);
+       text-decoration:none; font-size:1.2rem;">
+      ← Asian Gemological Association
+    </a>
+  </nav>
+
+  <section>
+    <h2>Certificate Verification</h2>
+    <div class="search-box"
+         style="border-color:var(--ruby);
+                max-width:550px;">
+      <input type="text" id="reportSearch"
+        placeholder="Enter Report Number">
+      <button onclick="searchCertificate()"
+              style="background:var(--ruby);
+                     color:white;">
+        Verify
+      </button>
+    </div>
+
+    <div id="certResult"></div>
+  </section>
+
+  <script src="js/app.js"></script>
+  <script>
+    // Auto-search if URL has ?id= parameter
+    const params = new URLSearchParams(
+      window.location.search
+    );
+    if (params.get('id')) {
+      document.getElementById('reportSearch')
+        .value = params.get('id');
+      searchCertificate();
+    }
+  </script>
 </body>
 </html>
