@@ -232,3 +232,46 @@ footer {
   background: white;
   border-bottom: 2px solid #C9A84C;
 }
+@media (max-width: 768px) {
+  .cert-result {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  .cert-images {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .cert-img-wrap img {
+    width: 180px;
+    height: 180px;
+  }
+  .cert-result table {
+    font-size: 0.85rem;
+  }
+  .cert-result td {
+    padding: 8px 6px;
+  }
+  .cert-result td:first-child {
+    width: 40%;
+    font-size: 0.8rem;
+  }
+  .search-box {
+    flex-direction: column;
+  }
+  .search-box input,
+  .search-box button {
+    width: 100%;
+  }
+  section {
+    padding: 1.5rem 4%;
+  }
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  nav ul {
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
+}
